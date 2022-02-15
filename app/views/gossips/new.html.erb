@@ -1,0 +1,33 @@
+<h1>C'est le moment de créer un nouveau potiiiin !!</h1>
+
+</br>
+
+<%= form_tag gossips_path(action: 'create'), method: "post"  do %>
+
+      <%= label_tag 'Titre du potin' %>
+      <%= text_field_tag 'title', @title %>
+      <br /> <br />
+
+      <%= label_tag 'Contenu du potin' %>
+      <%= text_area_tag 'content', @content %>
+      <br /> <br />
+      
+
+
+      <% if @gossip.errors.any? %>
+            <div class="alert alert-danger" role="alert">Oups, ton potin n'a pas été créé... Voilà pourquoi : </br>
+              <ul>
+                <% @gossip.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+              
+      <% end %>
+
+
+      <%= submit_tag "Balance ton potin" %>
+
+    <% end %>
+
+

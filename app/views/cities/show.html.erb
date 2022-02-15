@@ -1,0 +1,23 @@
+<h1> Voilà la ville de <%= @city.name %></h1>
+
+<p> Et voici ses potiiiiins :</p></br>
+
+<div class="list-group-item list-group-item-action" style="border: none">
+ 
+
+
+   <% @city.users.each do |user| %>
+    <% user.gossips.each do |gossip| %>
+     
+
+     <div class="card" style="width : 18rem;">
+         <div class="card-body">
+         <h5 class="card-title"><%= gossip.user.first_name %> </h5>
+         <p class="card-text"><%= gossip.title %></p>
+         <%= link_to "Voir le potin entier", gossip_path(gossip.id), class: "card-text"%>
+
+       
+      </div>
+   <%end%> 
+  <%end%> 
+</div>

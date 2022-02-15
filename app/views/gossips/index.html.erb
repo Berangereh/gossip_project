@@ -1,0 +1,28 @@
+
+<div class="jumbotron" style="width: 100% !important; background-color: #FCEADE;">
+        <div class="container">
+          <h1>Bienvenue sur mon site !</h1>
+          <p>Voici un super site avec pleins de potins hihi  😁</p>
+          <p> Balade toi ! Tu peux créer un potin, le modifier, le supprimer, se renseigner sur tous les potins et même sur les comères qui les ont écrit 😏 </p>
+          <p><a class="btn btn-dark btn-lg" href=" <%= new_gossip_path %>" role="button">📝 Créer un nouveau gossip</a></p>
+        </div>
+</div>
+
+
+
+<p>Voici tous les potins :</p>
+
+<div class="list-group-item list-group-item-action" style="border: none">
+
+  <% @gossip.each do |gossip| %>
+
+
+ <div class="card" style="width : 18rem;">
+     <div class="card-body">
+     <h5 class="card-title"><%= gossip.user.first_name %> </h5>
+     <p class="card-text"><%= gossip.title %></p>
+     <%= link_to "Voir le potin entier", gossip_path(gossip.id), class: "card-text"%>
+
+   
+</div>
+<%end%>

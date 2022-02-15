@@ -1,0 +1,10 @@
+<h1>Laisse moi te présenter ce super auteur :</h1>
+
+<p> Cet auteur s'appelle <%= User.find(@author_id).first_name %> <%= User.find(@author_id).last_name %>. </p>
+
+<p> En quelques mots : <%= User.find(@author_id).description %> </p>
+<p> Son age : <%= User.find(@author_id).age %> ans </p>
+<p> Sa ville : <%= User.find(@author_id).city.name %>, <%= User.find(@author_id).city.zip_code%>. 
+
+<%= link_to "Voir tous les potins de cette ville", city_path(User.find(@author_id).city)%> </p>
+<p> Vous pourrez contacter l'auteur par email : <a href="mailto:"> <%= User.find(@author_id).email %></a> </p>

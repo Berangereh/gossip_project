@@ -1,0 +1,39 @@
+<h3>Page du potin </h3>
+
+  <p> Voici le potin de <%= link_to "#{@gossip.user.first_name} #{@gossip.user.last_name}", author_path(@gossip.user.id)%> qui vient de <%= @gossip.user.city.name %>. <%= link_to "🔎 Voir tous les potins de cette ville", city_path(@gossip.user.city.id)%></p>
+
+  <p> <%= @gossip.user.first_name %> </p>
+  <p>Titre : <%= @gossip.title %></p>
+  <p>Créé le : <%= @gossip.created_at %></p>
+  <p>Et voilà le potin (hihi) : <%= @gossip.content %></p>
+
+ <p><a class="btn btn-dark btn-lg" href=" <%= edit_gossip_path %>" role="button">Modifier le gossip</a></p>
+
+
+
+<a href="<%= gossip_path(@gossip.id) %>" class="btn btn-danger" data-confirm="êtes-vous sur?" data-method="DELETE">❌ Supprimer le gossip</a>
+</br>
+
+
+<div class="container" style="margin-top: 50px; padding: 10px; border: solid black 1px;">
+  <p><strong> Lache un com 💬 </strong></p></br>
+
+  <%= form_tag gossip_path(@gossip)  do %>
+        <%= label_tag 'Auteur' %>
+        <%= text_field_tag 'author', @author %>
+        <br /> <br />
+
+        <%= label_tag 'Titre du comm' %>
+        <%= text_field_tag 'title', @title %>
+        <br /> <br />
+
+        <%= label_tag 'Ton comm' %>
+        <%= text_area_tag 'content', @content %>
+        <br /> <br />
+
+      <%= submit_tag "📩 Envoyer" %>
+
+      <% end %>
+  </div>
+
+

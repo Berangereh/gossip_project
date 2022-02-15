@@ -1,0 +1,17 @@
+<h1>Bienvenue !</h1>
+<p>🔐 Connectes toi  :</p>
+
+<%= form_tag sessions_path  do %>
+        <%= label_tag 'Adresse email' %>
+        <%= text_field_tag 'email', @email %>
+        <br /> <br />
+
+        <%= label_tag 'Mot de passe' %>
+        <%= text_field_tag 'password', @password %>
+        <br /> <br />
+
+      
+
+      <%= submit_tag "Login", class: "btn btn-primary" %>
+
+      <% end %>
